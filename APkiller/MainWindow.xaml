@@ -1,0 +1,55 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:APkiller"         
+        xmlns:UIprocces="clr-namespace:APkiller.Controls.UIprocces" x:Name="window" x:Class="APkiller.MainWindow"         
+        Style="{StaticResource WindowStyle}" MouseLeftButtonDown="window_MouseLeftButtonDown" Loaded="Main">
+    <Grid Height="{Binding Height, ElementName=window}" Width="{Binding Width, ElementName=window}" Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="37*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="231*"/>
+            <ColumnDefinition Width="4*"/>
+            <!--<ColumnDefinition Width="3*"/>-->
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Border Style="{StaticResource NameWindwo}" Height="34">
+                <Label Content="  APkiller  " Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,-9,5,0" FontSize="18"/>
+            </Border>
+            <Border Width="9"/>
+            <Border Visibility="Hidden" Style="{StaticResource NameWindwo}" Height="34">
+                <Label Content="  Active  " Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,-9,5,0" FontSize="18"/>
+            </Border>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Grid.Column="1" Height="34" Width="104" Grid.ColumnSpan="2">
+            <Border Style="{StaticResource ResizeWindBorder}" Width="34" Height="34" MouseLeftButtonDown="Border_MouseLeftButtonDown_2">
+                <Label Content="-" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,-9,5,0" FontSize="24" FontFamily="Segoe Print" ScrollViewer.CanContentScroll="True" Margin="0,-4,0,4"/>
+            </Border>
+            <Border Width="1"/>
+            <Border Style="{StaticResource ResizeWindBorder}" Width="34" Height="34" MouseLeftButtonDown="Border_MouseLeftButtonDown_1">
+                <Label Content="=" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,-9,5,0" FontSize="24" FontFamily="Segoe Print" ScrollViewer.CanContentScroll="True" Margin="0,-4,0,4"/>
+            </Border>
+            <Border Width="1"/>
+            <Border Style="{StaticResource CloseWindBorder}" Width="34" Height="34" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+                <Label Content="X" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,-9,5,0" FontSize="24" FontFamily="Segoe Print" ScrollViewer.CanContentScroll="True" Margin="0,-4,0,4"/>
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Label Content="All processes" Style="{StaticResource LabelStyle}" FontSize="20" FontFamily="Franklin Gothic Medium" MouseLeftButtonDown="Label_MouseLeftButtonDown"/>
+
+            <Label Content="Blocked Processes" Style="{StaticResource LabelStyle}" FontSize="20" FontFamily="Franklin Gothic Medium" Margin="4,5,0,0" MouseLeftButtonDown="Label_MouseLeftButtonDown_1"/>
+
+        </StackPanel>
+
+        <UIprocces:UIAllproc x:Name="ProcPanel" Visibility="Hidden" Grid.Column="1" Grid.Row="1" Margin="0,45,0,0"/>
+        <UIprocces:UIClosingPoc x:Name="ClosingProcPanel" Visibility="Hidden" Grid.Column="1" Grid.Row="1" Margin="0,45,0,0"/>
+
+    </Grid>
+
+</Window>
